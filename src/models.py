@@ -16,3 +16,9 @@ class Object(BaseModel):
     description: str
     protabel: bool
     actions: List[ActionType]
+
+class LocationNode(BaseModel):
+    name: str
+    description: str
+    objects: List[Object] = []
+    base_actions: List[ActionType]
