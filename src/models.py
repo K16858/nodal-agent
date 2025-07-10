@@ -10,3 +10,9 @@ ActionType = Literal[
     "talk",      # 話す
     "wait"       # 待機
 ]
+
+class Object(BaseModel):
+    name: str
+    description: str
+    protabel: bool
+    actions: List[ActionType]
