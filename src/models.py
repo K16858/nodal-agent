@@ -20,7 +20,7 @@ class Object(BaseModel):
 class LocationNode(BaseModel):
     name: str
     description: str
-    objects: List[Object] = []
+    objects: List[str] = []
     base_actions: List[ActionType]
     connections: List[str]
 
