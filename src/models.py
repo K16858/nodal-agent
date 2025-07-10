@@ -24,6 +24,6 @@ class LocationNode(BaseModel):
     base_actions: List[ActionType]
     connections: List[str]
 
-class World(BaseModel):
+class WorldDefinition(BaseModel):
     locations: List[LocationNode]
     objects: List[Object]
