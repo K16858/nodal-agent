@@ -22,3 +22,5 @@ class LocationNode(BaseModel):
     description: str
     objects: List[Object] = []
     base_actions: List[ActionType]
+    connections: List[str]
+
