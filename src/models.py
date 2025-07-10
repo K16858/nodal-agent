@@ -14,7 +14,7 @@ ActionType = Literal[
 class Object(BaseModel):
     name: str
     description: str
-    protabel: bool
+    portabel: bool
     actions: List[ActionType]
 
 class LocationNode(BaseModel):
