@@ -1,0 +1,44 @@
+{
+  "objects": [
+    {
+      "name": "本",
+      "description": "古い魔法の本。何かが書かれているようだ。",
+      "portable": true,
+      "actions": ["take", "examine", "use"]
+    },
+    {
+      "name": "りんご",
+      "description": "赤くて美味しそうなりんご。",
+      "portable": true,
+      "actions": ["take", "examine", "use"]
+    },
+    {
+      "name": "ソファ",
+      "description": "ふかふかの大きなソファ。座り心地が良さそう。",
+      "portable": false,
+      "actions": ["examine", "use"]
+    },
+    {
+      "name": "冷蔵庫",
+      "description": "大きな白い冷蔵庫。中に何か入っているかも。",
+      "portable": false,
+      "actions": ["examine", "use"]
+    }
+  ],
+  "locations": [
+    {
+      "name": "リビング",
+      "description": "明るくて広いリビングルーム。窓からは庭が見える。",
+      "objects": ["本", "ソファ"],
+      "base_actions": ["move", "examine", "wait"],
+      "connections": ["キッチン"]
+    },
+    {
+      "name": "キッチン", 
+      "description": "清潔で機能的なキッチン。料理の匂いが漂っている。",
+      "objects": ["りんご", "冷蔵庫"],
+      "base_actions": ["move", "examine", "wait"],
+      "connections": ["リビング"]
+    }
+  ]
+}
