@@ -79,3 +79,27 @@ class World:
         
         return list(set(valid_actions))
         
+    def execute_action(self, agent_name: str, action: ActionType, target: str) -> str:
+        if agent_name not in self.agents:
+            raise ValueError(f"エージェント '{agent_name}' は存在しません")
+        
+        agent_state = self.agent_states[agent_name]
+        
+        # 行動の実行
+        if action == "move":
+            return self._execute_move(agent_name, target)
+        elif action == "take":
+            return self._execute_take(agent_name, target)
+        elif action == "drop":
+            return self._execute_drop(agent_name, target)
+        elif action == "examine":
+            return self._execute_examine(agent_name, target)
+        elif action == "use":
+            return self._execute_use(agent_name, target)
+        elif action == "talk":
+            return self._execute_talk(agent_name, target)
+        elif action == "wait":
+            return self._execute_wait(agent_name)
+        else:
+            return f"未知の行動: {action}"
+        
