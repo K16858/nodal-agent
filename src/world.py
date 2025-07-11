@@ -18,5 +18,16 @@ class World:
         
         self.time = 0
     
-    
+    def add_agent(self, agent: Agent, start_location: str):
+        if start_location not in self.locations:
+            raise ValueError(f"ロケーション：'{start_location}' は存在しません。")
+        
+        if agent.name in self.agents:
+            raise ValueError(f"エージェント：'{agent.name}' はすでに存在します。")
+        
+        self.agents[agent.name] = agent
+        self.agent_states[agent.name] = {
+            'location': start_location,
+        }
+        
         
