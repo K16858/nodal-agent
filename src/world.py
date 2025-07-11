@@ -28,6 +28,7 @@ class World:
         self.agents[agent.name] = agent
         self.agent_states[agent.name] = {
             'location': start_location,
+            'inventory': [],
         }
         
     def tick(self):
@@ -60,6 +61,7 @@ class World:
             'objects_here': objects_here,
             'other_agents': other_agents,
             'current_time': self.time,
+            'inventory': [self.objects[item] for item in agent_state['inventory']],
             'connected_locations': current_location.connections
         }
         

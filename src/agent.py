@@ -3,5 +3,4 @@ class Agent:
         self.name = name
         self.personality = personality
         self.memory = []
-        self.inventory = []
     
