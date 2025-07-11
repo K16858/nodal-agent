@@ -30,4 +30,10 @@ class World:
             'location': start_location,
         }
         
+    def tick(self):
+        self.time += 1
+        if self.time > 96:
+            self.time = 0
+            
+    
         
