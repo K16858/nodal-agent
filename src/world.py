@@ -63,5 +63,19 @@ class World:
             'connected_locations': current_location.connections
         }
         
+    def get_valid_actions(self, agent_name: str) -> List[ActionType]:
+        if agent_name not in self.agents:
+            return []
         
+        agent_state = self.agent_states[agent_name]
+        current_location = self.locations[agent_state['location']]
+        
+        valid_actions = current_location.base_actions.copy()
+        
+        # オブジェクトに対するアクションを追加
+        for obj in current_location.objects:
+            if obj in self.objects:
+                valid_actions.extend(self.objects[obj].actions)
+        
+        return list(set(valid_actions))
         
