@@ -35,5 +35,33 @@ class World:
         if self.time > 96:
             self.time = 0
             
-    
+    def get_agent_context(self, agent_name: str) -> Optional[Dict]:
+        if agent_name not in self.agents:
+            return None
+        
+        agent_state = self.agent_states[agent_name]
+        current_location = self.locations[agent_state['location']]
+        
+        # 現在の場所にいるオブジェクトを取得
+        objects_here = []
+        for obj_name, obj_location in self.object_locations.items():
+            if obj_location == agent_state['location']:
+                objects_here.append(self.objects[obj_name])
+        
+        # 現在の場所にいる他のエージェントを取得
+        other_agents = []
+        for other_name, other_state in self.agent_states.items():
+            if other_name != agent_name and other_state['location'] == agent_state['location']:
+                other_agents.append(other_name)
+        
+        return {
+            'agent_name': agent_name,
+            'current_location': current_location,
+            'objects_here': objects_here,
+            'other_agents': other_agents,
+            'current_time': self.time,
+            'connected_locations': current_location.connections
+        }
+        
+        
         
